@@ -3,7 +3,7 @@
 void imprime(process processo){
 
     printf("Processo de PID:%d\n\t", processo.PID);
-    printf("Horário da criação do processo: %.2f\n", (double)processo.criationTime);
+    printf("Horário da criação do processo: %d\n\t", processo.criationTime);
     printf("Prioridade: %d\n\t", processo.priority);
 
 }
@@ -13,7 +13,7 @@ int GetPID(process process){
 }
 
 void SetPID(process *process){
-    processo.PID = rand();
+    processo.PID = rand() % 100;
 }
 
 int GetCriationTime(process process){
