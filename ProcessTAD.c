@@ -2,9 +2,9 @@
 // PID unico
 void imprime(process processo){
 
-    printf("Processo de PID:%d\n\t", processo.PID);
-    printf("Horário da criação do processo: %.2f\n", (double)processo.criationTime);
-    printf("Prioridade: %d\n\t", processo.priority);
+    printf("\tProcesso de PID: %d\n", processo.PID);
+    printf("\tHorário da criação do processo: %s\n", processo.criationTime);
+    printf("\tPrioridade: %d\n", processo.priority);
 
 }
 
@@ -13,22 +13,30 @@ int GetPID(process process){
 }
 
 void SetPID(process *process){
-    processo.PID = rand();
+    process->PID = rand() % Numero_Max_Random;
 }
 
-int GetCriationTime(process process){
+char* GetCriationTime(process process){
     return process.criationTime;
 }
 
 void SetCriationTime(process *process){
-    // Calculate the time taken by fun()
-    processo.criationTime = clock();
+    time_t currentTime;
+    time (&currentTime);
+
+    struct tm *timeInfo = localtime(&currentTime);
+    process->criationTime = (char*) malloc (Numero_Current_Time * sizeof (char)); 
+    
+    char buffer [Numero_Current_Time];
+
+    strftime (buffer, Numero_Current_Time,"%c", timeInfo);
+    strcpy (process->criationTime, buffer);	/* Copia process->criationTime em buffer */
 }
 
 int GetPriority(process process){
     return process.priority;
 }
 
-void SetPriority(process *process, int priority){
-    processo.priority = rand() % 5;
+void SetPriority(process *process){
+    process->priority = rand() % 5;
 }

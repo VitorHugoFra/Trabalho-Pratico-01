@@ -14,11 +14,16 @@
 #include <stdlib.h>
 #include <time.h> //Necessária para usar as funções de tempo
 #include <math.h> //Necessária para usar as funções matemáticas
+#include <string.h>
+
+#define Numero_Max_Random 100000
+#define Numero_Current_Time 80 
+
 
 //CRIANDO UM PROCESSO
 typedef struct Processo{
 	int PID;       			//Identificador do processo, gerado aleatoriamente
-	clock_t criationTime;   //Horário da criação do processo
+	char *criationTime;     //Horário da criação do processo
 	int priority;			//Valor de 1 a 5, gerado aleatoriamente
 }process;
 
@@ -56,7 +61,7 @@ void SetPID(process *process);
  * \return Tempo de criação do processo
  *
  */
-clock_t GetCriationTime(process process);
+char* GetCriationTime(process process);
 
 /** \brief Alteração os dados do processo para leitura 
  *
