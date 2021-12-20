@@ -32,3 +32,17 @@ int GetPriority(process process){
 void SetPriority(process *process, int priority){
     processo.priority = rand() % 5;
 }
+void CreateVector (int n , ListaProcesso *Lista){
+	Lista-> vetor =  (celula*) malloc(n * sizeof(celula));
+	
+}
+
+int FullVector (int n , ListaProcesso Lista){
+	int ocupy = 0;
+	for(int i = 0;i < n ; i++){
+		if (Lista.numCelOcupadas == 4){
+			ocupy ++;
+		}
+	}
+	return ocupy;
+}

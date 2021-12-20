@@ -16,7 +16,7 @@
 #include <math.h> //Necessária para usar as funções matemáticas
 #include <string.h>
 
-#define Numero_Max_Random 100000
+#define Numero_Max_Random 600000
 #define Numero_Current_Time 80 
 
 

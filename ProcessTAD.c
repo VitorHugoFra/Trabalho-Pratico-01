@@ -1,5 +1,5 @@
 #include "ProcessTAD.h"
-// PID unico
+
 void imprime(process processo){
 
     printf("\tProcesso de PID: %d\n", processo.PID);
@@ -13,7 +13,9 @@ int GetPID(process process){
 }
 
 void SetPID(process *process){
-    process->PID = rand() % Numero_Max_Random;
+    // Use current time as seed for random generator
+    srand(time(0));
+    process->PID = rand() % Numero_Max_Random; // Verificar se já existe
 }
 
 char* GetCriationTime(process process){
@@ -38,5 +40,7 @@ int GetPriority(process process){
 }
 
 void SetPriority(process *process){
-    process->priority = rand() % 5;
+    // Use current time as seed for random generator
+    srand(time(0));
+    process->priority = 1 + rand() % 5;
 }

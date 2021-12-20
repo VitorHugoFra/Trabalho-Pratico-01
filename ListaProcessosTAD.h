@@ -30,7 +30,7 @@ typedef struct ListaProcessos{
 	processoFinal *fim;		  //Aponta para a ultimo celula
 	int numCelOcupadas;		  //Indica quantas células da lista estão ocupadas
 	celula *celulasDisp;	  //Apontar para a primeira célula disponível
-}litstaProcesso;
+}listaProcesso;
 
 /** \brief Ordena as celulas na lista de processos
  *	 ***** usar boble sort *******
