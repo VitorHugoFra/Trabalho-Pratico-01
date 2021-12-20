@@ -7,8 +7,8 @@
  * @since 19 de dez
 */
 
-#ifndef CELULA_H
-#define CELULA_H
+#ifndef LISTA_PROCESSOS_H
+#define LISTA_PROCESSOS_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,34 +19,69 @@
 //CRIANDO UMA CELULA
 typedef struct Celula{
 	process processo;	//Dado da celula
-	process *prox;  	//Aponta para proximo processo
-	process *ant;		//Aponta para anterior processo
+	int prox;  			//Aponta para proximo processo
+	int ant;		    //Aponta para anterior processo
 }celula;
 
 //CRIANDO UM LISTA PROCESSOS
 typedef struct ListaProcessos{
-	celula *vetor ;			  //Vetor de celula
-	processoInicial *inicio;  //Aponta para a primeira celula
-	processoFinal *fim;		  //Aponta para a ultimo celula
-	int numCelOcupadas;		  //Indica quantas células da lista estão ocupadas
-	celula *celulasDisp;	  //Apontar para a primeira célula disponível
+	celula *vetor ;			    //Vetor de celula
+	int inicio;  				//Aponta para a primeira celula
+	int fim;		  			//Aponta para a ultimo celula
+	int numCelOcupadas;		    //Indica quantas células da lista estão ocupadas
+	int celulasDisp;	        //Apontar para a primeira célula disponível
 }listaProcesso;
 
-/** \brief Ordena as celulas na lista de processos
- *	 ***** usar boble sort *******
- * \param processo em questão 
+
+
+/** \brief Aloca celulas e inicia elementos
+ *
+ * \param Lista em questão, Tamanho da lista
  * \return void
  *
  */
-void imprime(process processo);
+void initList (int n , ListaProcesso *Lista);
 
-/** \brief Exibe todos os elementos do processo
+
+/** \brief Retorna tamanho de celulas da lista
  *
- * \param processo em questão 
+ * \param Lista em questão, Tamanho da lista
+ * \return Tamanho de celulas da lista
+ *
+ */
+int FullVector (int n , ListaProcesso Lista);
+
+/** \brief Inserir celulas na lista
+ *
+ * \param Lista em questão, Tamanho da lista
  * \return void
  *
  */
-void imprime(process processo);
+void insertCelula(int n , ListaProcesso *Lista)
+
+/** \brief Remove celulas no inicio da lista
+ *
+ * \param Lista em questão, Tamanho da lista
+ * \return void
+ *
+ */
+void removeCelulaInit(int n , ListaProcesso *Lista)
+
+/** \brief Remove celulas no fim da lista
+ *
+ * \param Lista em questão, Tamanho da lista
+ * \return void
+ *
+ */
+void removeCelulaEnd(int n , ListaProcesso *Lista){
+
+/** \brief Imprime a lista de processos
+ *
+ * \param Lista em questão, Tamanho da lista 
+ * \return void
+ *
+ */
+void imprime(int n , ListaProcesso Lista);
 
 
-#endif //Arquivo "CELULA_H"
+#endif //Arquivo "LISTA_PROCESSOS_H"

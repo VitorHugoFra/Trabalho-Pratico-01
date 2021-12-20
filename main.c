@@ -1,4 +1,8 @@
 #include "ProcessTAD.h"
+#include "ListaProcessosTAD.h"
+
+
+
 #define sucess 0
 
 int main(void){
