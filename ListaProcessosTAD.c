@@ -12,24 +12,49 @@ void insertCelula(int n , ListaProcesso *Lista){
         
     }else{
 
+        SetPID(&Lista->vetor[celulasDisp].processo);
+        SetCriationTime(&Lista->vetor[celulasDisp].processo);
+        SetPriority(&Lista->vetor[celulasDisp].processo);
+        imprime(Lista->vetor[celulasDisp].processo);
+
+        int i = 0;
+        for ( i = 0; i < Lista->numCelOcupadas; i++)
+        {
+            if (Lista->vetor[i].processo.PID > Lista->vetor[celulasDisp].processo.PID)
+            {
+                process aux;
+
+                aux = Lista->vetor[i].processo.PID;
+                Lista->vetor[i].processo = Lista->vetor[celulasDisp].processo;
+                Lista->vetor[celulasDisp].processo = aux;
+            }
+        }
+        
     }
+    Lista->numCelOcupadas++;
+    Lista->celulasDisp++;
 }
 void removeCelulaInit(int n , ListaProcesso *Lista){
     if(Lista->numCelOcupadas > 0){
 
-
-        Lista->vetor[0]
         int i = 0;
-        for ( i = 0; i < count; i++)
+        for ( i = 1; i < Lista->numCelOcupadas; i++)
         {
-            /* code */
+            Lista->vetor[i-1] = Lista->vetor[i];
         }
-        
+        Lista->numCelOcupadas--;
+        Lista->celulasDisp--;
     }
 
 }
 void removeCelulaEnd(int n , ListaProcesso *Lista){
 
+        int i = 0;
+        
+        Lista->vetor[Lista->numCelOcupadas].processo = NULL;
+
+        Lista->numCelOcupadas--;
+        Lista->celulasDisp--;
 }
 
 void initList (int n , ListaProcesso *Lista){
