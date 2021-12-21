@@ -4,22 +4,28 @@
 
 void insertCelula(int n , listaProcesso *Lista){
 
-        SetPID(&Lista->vetor[Lista->celulasDisp].processo);
-        SetCriationTime(&Lista->vetor[Lista->celulasDisp].processo);
-        SetPriority(&Lista->vetor[Lista->celulasDisp].processo);
+    SetPID(&Lista->vetor[Lista->celulasDisp].processo);
+    SetCriationTime(&Lista->vetor[Lista->celulasDisp].processo);
+    SetPriority(&Lista->vetor[Lista->celulasDisp].processo);
 
-        int i = 0;
-        for ( i = 0; i < Lista->numCelOcupadas; i++)
+    int i = 0;
+    for ( i = 0; i < Lista->numCelOcupadas; i++)
+    {
+        if (Lista->vetor[i].processo.PID > Lista->vetor[Lista->celulasDisp].processo.PID)
         {
-            if (Lista->vetor[i].processo.PID > Lista->vetor[Lista->celulasDisp].processo.PID)
-            {
-                process aux;
+            process aux;
 
-                aux = Lista->vetor[i].processo;
-                Lista->vetor[i].processo = Lista->vetor[Lista->celulasDisp].processo;
-                Lista->vetor[Lista->celulasDisp].processo = aux;
-            }
+            aux = Lista->vetor[i].processo;
+            Lista->vetor[i].processo = Lista->vetor[Lista->celulasDisp].processo;
+            Lista->vetor[Lista->celulasDisp].processo = aux;
         }
+    }
+    if(Lista->celulasDisp == 0){
+        Lista->inicio = 0;
+        Lista->fim = 0;
+    }else{
+        Lista->fim++;
+    }
         
     Lista->numCelOcupadas++;
     Lista->celulasDisp++;
@@ -54,7 +60,7 @@ void initList (int n , listaProcesso *Lista){
 	Lista->vetor =  (celula*) malloc(n * sizeof(celula));
     Lista->numCelOcupadas = 0;
     Lista->inicio = -1;
-    Lista->fim = n-1;
+    Lista->fim = -1;
     Lista->celulasDisp = 0;
     int i = 0;
 
