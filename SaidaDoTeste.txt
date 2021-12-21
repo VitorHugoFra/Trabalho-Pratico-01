@@ -1,3 +1,5 @@
 Tempo de execução = 10.39s
 Tempo de execução = 11.02s
 Tempo de execução = 8.78s
+Tempo de execução = 0.02s
+Tempo de execução = 0.02s
