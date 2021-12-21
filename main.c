@@ -45,15 +45,17 @@ int main(void){
 	
 	fclose(archive);//fecha arquivo de teste
 	
-	FILE *FileOut;
-	FileOut = fopen("SaidaDoTeste.txt","w");//cria arquivo para escrita
+    FILE *FileOut;
+	FileOut = fopen("SaidaDoTeste.txt","a");//cria arquivo para escrita
+    
 	
 	
 	end = clock();//finaliza o contador de tempo
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-	fprintf(FileOut,"Tempo de execução = %.2lfs", cpu_time_used);//escreve o tempo gasto no nova arquivo
+	fprintf(FileOut,"Tempo de execução = %.2lfs\n", cpu_time_used);//escreve o tempo gasto no nova arquivo
 	fclose(FileOut);
     imprimeLista(SizeVetor, lista);
+    //Liberar
 
     return sucess;
 }

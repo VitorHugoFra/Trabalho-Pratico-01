@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "processtad.h": "c"
+        "processtad.h": "c",
+        "listaprocessostad.h": "c"
     }
 }

@@ -3,19 +3,10 @@
 
 
 void insertCelula(int n , listaProcesso *Lista){
-    if(Lista->celulasDisp == 0){
 
         SetPID(&Lista->vetor[Lista->celulasDisp].processo);
         SetCriationTime(&Lista->vetor[Lista->celulasDisp].processo);
         SetPriority(&Lista->vetor[Lista->celulasDisp].processo);
-        //imprime(Lista->vetor[Lista->celulasDisp].processo);
-        
-    }else{
-
-        SetPID(&Lista->vetor[Lista->celulasDisp].processo);
-        SetCriationTime(&Lista->vetor[Lista->celulasDisp].processo);
-        SetPriority(&Lista->vetor[Lista->celulasDisp].processo);
-        //imprime(Lista->vetor[Lista->celulasDisp].processo);
 
         int i = 0;
         for ( i = 0; i < Lista->numCelOcupadas; i++)
@@ -30,11 +21,12 @@ void insertCelula(int n , listaProcesso *Lista){
             }
         }
         
-    }
     Lista->numCelOcupadas++;
     Lista->celulasDisp++;
 }
+
 void removeCelulaInit(int n , listaProcesso *Lista){
+
     if(Lista->numCelOcupadas > 0){
 
         int i = 0;
@@ -47,6 +39,7 @@ void removeCelulaInit(int n , listaProcesso *Lista){
     }
 
 }
+
 void removeCelulaEnd(int n , listaProcesso *Lista){
 
         int i = 0;
