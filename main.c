@@ -21,8 +21,8 @@ int main(void){
 	
 	fscanf(archive,"%d %d" , &SizeVetor , &CountOperations );
 
-    ListaProcessos lista;
-    initList(SizeVetor, lista);
+    listaProcesso lista;
+    initList(SizeVetor, &lista);
 	
 	for(int i = 0;i < CountOperations ; i++){
 		
@@ -31,13 +31,13 @@ int main(void){
 		if (Operation == 0){
 			for(int i = 0;i < Repetitions ; i++){
 				//Operação de adição
-                insertCelula(SizeVetor, lista)
+                insertCelula(SizeVetor, &lista);
 			}
 		}
 		if (Operation == 1){
 			for(int i = 0;i < Repetitions ; i++){
 				//Operação de Remoção
-                removeCelulaInit(SizeVetor , lista)
+                removeCelulaInit(SizeVetor , &lista);
 			}
 		}
 	}
@@ -53,6 +53,7 @@ int main(void){
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
 	fprintf(FileOut,"Tempo de execução = %.2lfs", cpu_time_used);//escreve o tempo gasto no nova arquivo
 	fclose(FileOut);
+    imprimeLista(SizeVetor, lista);
 
     return sucess;
 }

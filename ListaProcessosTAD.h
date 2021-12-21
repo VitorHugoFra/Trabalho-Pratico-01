@@ -40,7 +40,7 @@ typedef struct ListaProcessos{
  * \return void
  *
  */
-void initList (int n , ListaProcesso *Lista);
+void initList (int n , listaProcesso *Lista);
 
 
 /** \brief Retorna tamanho de celulas da lista
@@ -49,7 +49,7 @@ void initList (int n , ListaProcesso *Lista);
  * \return Tamanho de celulas da lista
  *
  */
-int FullVector (int n , ListaProcesso Lista);
+int FullVector (int n , listaProcesso Lista);
 
 /** \brief Inserir celulas na lista
  *
@@ -57,7 +57,7 @@ int FullVector (int n , ListaProcesso Lista);
  * \return void
  *
  */
-void insertCelula(int n , ListaProcesso *Lista)
+void insertCelula(int n , listaProcesso *Lista);
 
 /** \brief Remove celulas no inicio da lista
  *
@@ -65,7 +65,7 @@ void insertCelula(int n , ListaProcesso *Lista)
  * \return void
  *
  */
-void removeCelulaInit(int n , ListaProcesso *Lista)
+void removeCelulaInit(int n , listaProcesso *Lista);
 
 /** \brief Remove celulas no fim da lista
  *
@@ -73,7 +73,7 @@ void removeCelulaInit(int n , ListaProcesso *Lista)
  * \return void
  *
  */
-void removeCelulaEnd(int n , ListaProcesso *Lista){
+void removeCelulaEnd(int n , listaProcesso *Lista);
 
 /** \brief Imprime a lista de processos
  *
@@ -81,7 +81,7 @@ void removeCelulaEnd(int n , ListaProcesso *Lista){
  * \return void
  *
  */
-void imprime(int n , ListaProcesso Lista);
+void imprimeLista(int n , listaProcesso Lista);
 
 
 #endif //Arquivo "LISTA_PROCESSOS_H"

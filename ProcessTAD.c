@@ -14,7 +14,7 @@ int GetPID(process process){
 
 void SetPID(process *process){
     // Use current time as seed for random generator
-    srand(time(0));
+    //srand(time(0));
     process->PID = rand() % Numero_Max_Random; // Verificar se já existe
 }
 
@@ -41,6 +41,6 @@ int GetPriority(process process){
 
 void SetPriority(process *process){
     // Use current time as seed for random generator
-    srand(time(0));
+    //srand(time(0));
     process->priority = 1 + rand() % 5;
 }
